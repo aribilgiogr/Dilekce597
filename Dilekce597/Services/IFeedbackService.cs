@@ -6,6 +6,7 @@ namespace Dilekce597.Services
     {
         Task<bool> CreateAsync(FeedbackCreateViewModel model);
         Task<IEnumerable<FeedbackListItemViewModel>> GetAsync();
+        Task<IEnumerable<FeedbackListItemViewModel>> GetAsync(FeedbackFilterViewModel filterModel);
         Task<FeedbackDetailViewModel> GetAsync(int id);
     }
 }

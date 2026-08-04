@@ -1,0 +1,36 @@
+﻿@model FeedbackFilterViewModel
+<div class="collapse" id="filtre">
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-light py-3">
+            <h6 class="mb-0">Filtreleme Seçenekleri</h6>
+        </div>
+        <div class="card-body p-3">
+            <form asp-action="index" asp-controller="home" method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label asp-for="SearchTerm" class="form-label"></label>
+                    <input asp-for="SearchTerm" class="form-control" />
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Category" class="form-label"></label>
+                    <select asp-for="Category" asp-items="Html.GetEnumSelectList<FeedbackCategory>()" class="form-select">
+                        <option value="" disabled selected>Seçiniz...</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="StartDate" class="form-label"></label>
+                    <input asp-for="StartDate" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="EndDate" class="form-label"></label>
+                    <input asp-for="EndDate" class="form-control" />
+                </div>
+                <div class="col-md-1 d-flex align-items-end">
+                    <div class="d-grid w-100 gap-1">
+                        <button type="submit" class="btn btn-secondary btn-sm">Filtrele</button>
+                        <a asp-action="index" asp-controller="home" class="btn btn-outline-danger btn-sm">Temizle</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

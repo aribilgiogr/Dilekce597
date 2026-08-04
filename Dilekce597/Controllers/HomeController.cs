@@ -8,9 +8,10 @@ namespace Dilekce597.Controllers
     public class HomeController(IFeedbackService service) : Controller
     {
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromQuery] FeedbackFilterViewModel filter)
         {
-            var list = await service.GetAsync();
+            var list = await service.GetAsync(filter);
+            ViewData["filter"] = filter;
             return View(list);
         }
 

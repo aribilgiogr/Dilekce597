@@ -1,13 +1,21 @@
 ﻿@model IEnumerable<FeedbackListItemViewModel>
 @{
     ViewData["Title"] = "Şikayet ve Görüş Listesi";
+    var filter = ViewData["filter"] as FeedbackFilterViewModel ?? new FeedbackFilterViewModel();
 }
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>@ViewData["Title"]</h2>
-    <a asp-action="create" asp-controller="home" class="btn btn-primary">
-        Yeni Bildirim Oluştur
-    </a>
+    <div>
+        <a asp-action="create" asp-controller="home" class="btn btn-primary">
+            Yeni Bildirim Oluştur
+        </a>
+        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#filtre" aria-expanded="false" aria-controls="collapseExample">
+            Filtrele
+        </button>
+    </div>
 </div>
+
+<partial name="_FilterPartial" model="filter" />
 
 <div class="card shadow-sm">
     <div class="card-body p-0">
